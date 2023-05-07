@@ -48,6 +48,11 @@ function getTimeChosen() {
   allVariables.startButton.setAttribute('disabled', 'disabled');
   allVariables.startButton.style.color = 'red';
   startIntervalId = setInterval(startTime, 1000, selectTime);
+
+  // remove the click event listener on the start button
+  allVariables.startButton.removeEventListener('click', getTimeChosen);
+  allVariables.startButton.setAttribute('disabled', 'disabled');
+  allVariables.startButton.style.color = 'red';
 }
 
 function startTime(selectTime) {

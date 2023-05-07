@@ -63,8 +63,11 @@ function startTime(selectTime) {
 }
 
 function getTimeDate(days, hours, minutes, seconds) {
-  if (days === -1) {
-    clearTimeout(startId);
+  const now = new Date().getTime();
+  const selectedTime = chosenDateTime.latestSelectedDateObj.getTime();
+
+  if (selectedTime <= now) {
+    clearTimeout(startIntervalId);
     return;
   }
 
